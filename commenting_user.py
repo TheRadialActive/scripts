@@ -1,33 +1,23 @@
 #!/usr/bin/python
-#        DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
-#                    Version 2, December 2004 
-#
-# Copyright (C) 2015 Rune Albut <etwas@runealbut.de> 
-#
-# Everyone is permitted to copy and distribute verbatim or modified 
-# copies of this license document, and changing it is allowed as long 
-# as the name is changed. 
-#
-#            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
-#   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION 
-#
-#  0. You just DO WHAT THE FUCK YOU WANT TO.
 
 import json
 import requests
 import socket
 import sys
-import datetime
+from datetime import datetime
 
 # install
 # pip install requests
 # use
 # python commenting_user.py | sort -u
 
-if sys.argv[1]:
+# Usage:
+# run the script and define the post link 
+
+if len(sys.argv) == 2:
     url_d = sys.argv[1]
 else:
-    print("Error: Please enter a valid url as argument for the script!")
+    sys.exit("ERROR: Please enter a valid diaspora* post link in quotation marks.")
 
 try:
     print("Get post link on author's pod")
@@ -55,9 +45,10 @@ try:
     print("--- Markdown-Code ---")
     for user in users_list:
         print(user)
-    
-    print(str(len(users_list)) + " contacts")
-    print(datetime.date.today())
+
+    users_list_len = str(len(users_list))
+    ex_date = datetime.now().strftime('%d.%m.%Y %H:%M')
+    print(users_list_len + " contacts commented until " + ex_date)
 
 except requests.exceptions.Timeout:
 
