@@ -54,7 +54,7 @@ try:
         sum_comments += item[1]
 
     user_sum = str(len(user_num))
-    print("|Number of Comments (" + str(sum_comments) + ") |Share of Discussion (100%) |User (" + user_sum + ") |\n| ---:| ---:|--|")
+    print("|Number of <br>Comments (" + str(sum_comments) + ") |Share of <br>Discussion (100%) |User (" + user_sum + ") |\n| ---:| ---:|--|")
     for line in comments_list_md:
         print(line)
 
