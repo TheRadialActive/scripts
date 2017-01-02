@@ -40,7 +40,7 @@ try:
         users_list.append("* ["+item['author']['name'] +" "+item['author']['diaspora_id'] +"](/people/"+ item['author']['guid'] +")"  + "    ")
 
     users_list = list(set(users_list))
-    users_list.sort()
+    users_list.sort(key=str.lower)
 
     print("--- Markdown-Code ---")
     for user in users_list:
